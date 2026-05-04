@@ -53,7 +53,7 @@ loadSection("cta-section",      "sections/cta.html");
 
 // ── BACKEND URL ───────────────────────────────────────────────────────────────
 // Change this if your backend runs on a different port
-const BACKEND_URL = "http://localhost:3000";
+const BACKEND_URL = "http://localhost:3001";
 
 // ── AUTH FORMS ────────────────────────────────────────────────────────────────
 
@@ -139,9 +139,6 @@ function attachAuthListeners() {
         alert("Password must be at least 8 characters long.");
         return;
       }
-
-      // Rule 2: password must contain at least one special character
-      // Must match the backend regex exactly: /[!@#$%]/
       const specialCharPattern = /[!@#$%]/;
       if (!specialCharPattern.test(password)) {
         alert("Password must include at least one special character: ! @ # $ %");
@@ -164,16 +161,13 @@ function attachAuthListeners() {
         })
         .then(function (data) {
           if (data.message) {
-            // Success — credentials matched
             alert("Login successful! Welcome back.");
             loginForm.reset();
           } else {
-            // Backend returned 401 or 400
             alert("Error: " + data.error);
           }
         })
         .catch(function (error) {
-          // Network error — backend probably not running
           alert("Could not connect to the server. Make sure node server.js is running.");
           console.error("Login error:", error);
         });
