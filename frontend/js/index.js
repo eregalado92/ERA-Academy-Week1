@@ -53,7 +53,7 @@ loadSection("cta-section",      "sections/cta.html");
 
 // ── BACKEND URL ───────────────────────────────────────────────────────────────
 // Change this if your backend runs on a different port
-const BACKEND_URL = "http://localhost:3001";
+const BACKEND_URL = "http://localhost:3000";
 
 // ── AUTH FORMS ────────────────────────────────────────────────────────────────
 
@@ -161,8 +161,11 @@ function attachAuthListeners() {
         })
         .then(function (data) {
           if (data.message) {
-            alert("Login successful! Welcome back.");
-            loginForm.reset();
+            localStorage.setItem("era_user", JSON.stringify({
+              first_name: data.first_name,
+              last_name:  data.last_name
+            }));
+            window.location.href = "dashboard.html";
           } else {
             alert("Error: " + data.error);
           }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ERA Academy - Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <nav class="navbar width">
+    <div class="nav-container">
+
+      <div class="logo">ERA Academy</div>
+
+      <div class="nav-right">
+        <span id="dashboard-user" class="nav-user visible"></span>
+        <button class="logout-btn" onclick="logout()">Log Out</button>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="dashboard">
+    <div class="dashboard-container">
+
+      <h1 id="welcome-heading" class="dashboard-heading">Welcome back!</h1>
+      <p class="dashboard-subheading">Here are your enrolled classes for this semester.</p>
+
+      <div class="dashboard-card">
+        <h2 class="dashboard-card-title">My Classes</h2>
+        <div id="classes-content">
+          <p class="loading-text">Loading your classes...</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+
+</body>
+</html>
