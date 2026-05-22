@@ -163,7 +163,8 @@ function attachAuthListeners() {
           if (data.message) {
             localStorage.setItem("era_user", JSON.stringify({
               first_name: data.first_name,
-              last_name:  data.last_name
+              last_name:  data.last_name,
+              student_id: data.student_id
             }));
             window.location.href = "dashboard.html";
           } else {

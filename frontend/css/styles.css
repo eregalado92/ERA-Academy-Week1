@@ -527,11 +527,87 @@ box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   margin-bottom: 40px;
 }
 
+.tab-nav {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 0;
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  background-color: #dce8f8;
+  color: #0b4ca2;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tab-btn:hover {
+  background-color: #c2d8f4;
+}
+
+.tab-btn.active {
+  background-color: white;
+  color: #0b4ca2;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
 .dashboard-card {
   background-color: white;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   padding: 30px;
+}
+
+.grade-badge {
+  background-color: #0b4ca2;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status-present {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-absent {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.status-late,
+.status-tardy {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.pending-badge {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .dashboard-card-title {

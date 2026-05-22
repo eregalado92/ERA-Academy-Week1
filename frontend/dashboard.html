@@ -12,14 +12,11 @@
 
   <nav class="navbar width">
     <div class="nav-container">
-
       <div class="logo">ERA Academy</div>
-
       <div class="nav-right">
         <span id="dashboard-user" class="nav-user visible"></span>
         <button class="logout-btn" onclick="logout()">Log Out</button>
       </div>
-
     </div>
   </nav>
 
@@ -27,13 +24,39 @@
     <div class="dashboard-container">
 
       <h1 id="welcome-heading" class="dashboard-heading">Welcome back!</h1>
-      <p class="dashboard-subheading">Here are your enrolled classes for this semester.</p>
+      <p id="student-grade" class="dashboard-subheading"></p>
 
+      <!-- TAB NAVIGATION -->
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('classes', this)">My Classes</button>
+        <button class="tab-btn" onclick="switchTab('grades', this)">My Grades</button>
+        <button class="tab-btn" onclick="switchTab('assignments', this)">My Assignments</button>
+        <button class="tab-btn" onclick="switchTab('attendance', this)">My Attendance</button>
+      </div>
+
+      <!-- TAB CONTENT -->
       <div class="dashboard-card">
-        <h2 class="dashboard-card-title">My Classes</h2>
-        <div id="classes-content">
-          <p class="loading-text">Loading your classes...</p>
+
+        <div id="tab-classes" class="tab-content active">
+          <h2 class="dashboard-card-title">My Classes</h2>
+          <div id="classes-content"><p class="loading-text">Loading...</p></div>
         </div>
+
+        <div id="tab-grades" class="tab-content">
+          <h2 class="dashboard-card-title">My Grades</h2>
+          <div id="grades-content"><p class="loading-text">Loading...</p></div>
+        </div>
+
+        <div id="tab-assignments" class="tab-content">
+          <h2 class="dashboard-card-title">My Assignments</h2>
+          <div id="assignments-content"><p class="loading-text">Loading...</p></div>
+        </div>
+
+        <div id="tab-attendance" class="tab-content">
+          <h2 class="dashboard-card-title">My Attendance</h2>
+          <div id="attendance-content"><p class="loading-text">Loading...</p></div>
+        </div>
+
       </div>
 
     </div>
