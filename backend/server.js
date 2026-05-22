@@ -137,13 +137,21 @@ app.post("/users", (req, res) => {
           "Password must include at least one special character: ! @ # $ %",
       });
   }
-  const sql =
-    "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
-  db.query(sql, [first_name, last_name, email, password], (error, results) => {
-    if (error) return res.status(500).json({ error: "Failed to create user" });
-    res
-      .status(201)
-      .json({ message: "User created successfully", userId: results.insertId });
+  // Auto-link to student record if name matches
+  const studentSql = "SELECT id FROM students WHERE first_name = ? AND last_name = ?";
+  db.query(studentSql, [first_name, last_name], (error, students) => {
+    if (error) return res.status(500).json({ error: "Failed to look up student" });
+
+    const student_id = students.length > 0 ? students[0].id : null;
+
+    const sql =
+      "INSERT INTO users (first_name, last_name, email, password, student_id) VALUES (?, ?, ?, ?, ?)";
+    db.query(sql, [first_name, last_name, email, password, student_id], (error, results) => {
+      if (error) return res.status(500).json({ error: "Failed to create user" });
+      res
+        .status(201)
+        .json({ message: "User created successfully", userId: results.insertId });
+    });
   });
 });
 
