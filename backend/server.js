@@ -22,7 +22,7 @@ app.get("/students", (req, res) => {
   });
 });
 
-// GET /students/:id - Get student profile info
+// GET /students/:id - Get student profile info  
 app.get("/students/:id", (req, res) => {
   const studentId = req.params.id;
   const sql =
@@ -36,7 +36,7 @@ app.get("/students/:id", (req, res) => {
   });
 });
 
-// GET /students/:id/grades - Get all grades for a specific student
+// GET /students/:id/grades - Get all grades for a specific student 
 app.get("/students/:id/grades", (req, res) => {
   const studentId = req.params.id;
   const sql = `
@@ -78,7 +78,7 @@ app.get("/students/:id/assignments", (req, res) => {
   });
 });
 
-// GET /students/:id/attendance - Get attendance record for a student
+// GET /students/:id/attendance - Get attendance record for a student 
 app.get("/students/:id/attendance", (req, res) => {
   const studentId = req.params.id;
   const sql = `
@@ -117,7 +117,7 @@ app.post("/students", (req, res) => {
   });
 });
 
-// POST /users
+// POST /users 
 app.post("/users", (req, res) => {
   const { first_name, last_name, email, password } = req.body;
   if (!first_name || !last_name || !email || !password) {
@@ -155,7 +155,7 @@ app.post("/users", (req, res) => {
   });
 });
 
-// GET /users — returns all users (password excluded)
+// GET /users — returns all users (password excluded) 
 app.get("/users", (req, res) => {
   const sql = "SELECT id, first_name, last_name, email FROM users";
   db.query(sql, (error, results) => {
@@ -164,7 +164,7 @@ app.get("/users", (req, res) => {
   });
 });
 
-// POST /login (UPDATED - now returns student_id)
+// POST /login (UPDATED - now returns student_id) 
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
